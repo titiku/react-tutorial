@@ -11,7 +11,7 @@ class Features extends Component{
     }
 
     componentDidMount(){
-        fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=55f8686a83422ba313fc6620a21abd8b&language=en-US&page=1')
+        fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=55f8686a83422ba313fc6620a21abd8b&language=th&page=1')
         .then(response =>  response.json())
         .then(resData => {
            this.setState({ data: resData.results });
@@ -26,12 +26,11 @@ class Features extends Component{
                        imageUrl={"https://image.tmdb.org/t/p/w500/"+element.poster_path} 
                        pathUrl={"/features/"+element.id}/>)
         });
-
         return( 
-        <Container>
-            <h1>Features</h1>
+        <Container style={{padding:"20px"}}>
+            <h1>Upcoming</h1>
             <div  style={{background:"gray",display:'flex',flexWrap:'wrap',justifyContent:'center'}}>
-            {items}
+             {items}
             </div>
         </Container>
         )
